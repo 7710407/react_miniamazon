@@ -22,11 +22,11 @@ const Book = () => {
   );
 };
 
-const Image = () => <h2>image placeholder</h2>;
+const Image = () => <img src='https://images-na.ssl-images-amazon.com/images/I/A1bc9KkHtsL._AC_UL600_SR600,400_.jpg' alt='Iron Flame' />;
 const Title = () => {
-  return <h2>Book Title</h2>;
+  return <h2>Iron Flame</h2>;
 };
-const Author = () => <h4>Author</h4>;
+const Author = () => <h4>Rebecca Yarros</h4>;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
