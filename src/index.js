@@ -2,52 +2,71 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-const firstBook = {
-  author: 'Rebecca Yarros',
-  title: 'Iron Flame',
-  img: './images/iron.jpg'
-}
+const books = [
 
-const secondBook = {
-  author: 'Alex Michaelides',
-  title: 'The Silent Patient',
-  img: 'https://m.media-amazon.com/images/I/41j1-YNROeL._SX324_BO1,204,203,200_.jpg'
-}
-
+  {
+    author: 'Rebecca Yarros',
+    title: 'Iron Flame',
+    img: './images/iron.jpg',
+    id: 1,
+  },
+  {
+    author: 'Alex Michaelides',
+    title: 'The Silent Patient',
+    img: 'https://m.media-amazon.com/images/I/41j1-YNROeL._SX324_BO1,204,203,200_.jpg',
+    id: 2,
+  }
+]
 const author = 'Rebecca Yarros';
 const title = 'Iron Flame 777';
 const img = './images/iron.jpg'
 
+const names = ['Susana', 'Arsen', 'Armen'];
+const newNames = names.map((name)=> {
+  return <h1>{name}</h1>;
+});
+console.log(newNames);
+
 function BookList() {
   return (
     <section className='booklist'>
-      <Book 
-        author={firstBook.author} 
-        title={firstBook.title} 
-        img={firstBook.img} 
-      >
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, asperiores?
-        </p>
-        <button>click me</button>      </Book>
-      <Book 
-        author={secondBook.author} 
-        title={secondBook.title} 
-        img={secondBook.img} 
-      />
-      <Book author={author} title={title} img={img} />
-      <Book author={author} title={title} img={img} />
+      <EventExamples />
+      {books.map((book)=>{
+        return <Book {...book} key={book.id} />
+      })}
     </section>
   );
 }
+const EventExamples = () => {
+  const handleFormInput = (e) =>{
+    console.log(e);
+    console.log('handle form input : ' + e);
+  };
 
-const Book = ({img, title, author, children}) => {
+  const handleButtonClick = () =>{
+    alert('button clicked');
+  };
+
+  return <section>
+    <form>
+      <h2>Typical Form</h2>
+      <input 
+        type='text' 
+        name='example' 
+        onChange={handleFormInput} 
+        style={{margin:'1rem 0'}}/>
+    </form>
+    <button onClick={handleButtonClick}>click me</button>
+  </section>
+}
+
+const Book = (props) => {
+  const {img, title, author} = props;
   return (
     <article className='book'>
       <img src={img} alt={title} />
       <h2>{title}</h2>
-      <h4>{author.toUpperCase()}</h4>
-      {children}
+      <h4>{author}</h4>
     </article>
   );
 };
