@@ -30,50 +30,56 @@ console.log(newNames);
 function BookList() {
   return (
     <section className='booklist'>
-      <EventExamples />
+      {/* <EventExamples /> */}
       {books.map((book)=>{
         return <Book {...book} key={book.id} />
       })}
     </section>
   );
 }
-const EventExamples = () => {
-  const handleFormInput = (e) =>{
-    console.log(e);
-    console.log('handle form input : ' + e);
-  };
 
-  const handleButtonClick = () =>{
-    alert('button clicked');
-  };
+// const EventExamples = () => {
+//   const handleFormInput = (e) =>{
+//     console.log(e);
+//     console.log('handle form input : ' + e);
+//   };
 
-  const handleFormSubmission = (e) =>{
-    e.preventDefault();
-    console.log('form submitted');
-  };
+//   const handleButtonClick = () =>{
+//     alert('button clicked');
+//   };
 
-  return (<section>
-    <form onSubmit={handleFormSubmission}>
-      <h2>Typical Form</h2>
-      <input 
-        type='text' 
-        name='example' 
-        onChange={handleFormInput} 
-        style={{margin:'1rem 0'}}/>
-      <button type='submit'>
-        submit
-      </button>
-      <button onClick={handleButtonClick}>click me</button>
-    </form>
-  </section>)
-}
+//   const handleFormSubmission = (e) =>{
+//     e.preventDefault();
+//     console.log('form submitted');
+//   };
+
+//   return (<section>
+//     <form onSubmit={handleFormSubmission}>
+//       <h2>Typical Form</h2>
+//       <input 
+//         type='text' 
+//         name='example' 
+//         onChange={handleFormInput} 
+//         style={{margin:'1rem 0'}}/>
+//       <button type='submit'>
+//         submit
+//       </button>
+//       <button onClick={handleButtonClick}>click me</button>
+//     </form>
+//   </section>)
+// }
 
 const Book = (props) => {
   const {img, title, author} = props;
+  const displayTitle = () => {
+    console.log(title);
+  }
+
   return (
     <article className='book'>
       <img src={img} alt={title} />
       <h2>{title}</h2>
+      <button onClick={displayTitle}>display title</button>
       <h4>{author}</h4>
     </article>
   );
