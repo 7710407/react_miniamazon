@@ -47,17 +47,25 @@ const EventExamples = () => {
     alert('button clicked');
   };
 
-  return <section>
-    <form>
+  const handleFormSubmission = (e) =>{
+    e.preventDefault();
+    console.log('form submitted');
+  };
+
+  return (<section>
+    <form onSubmit={handleFormSubmission}>
       <h2>Typical Form</h2>
       <input 
         type='text' 
         name='example' 
         onChange={handleFormInput} 
         style={{margin:'1rem 0'}}/>
+      <button type='submit'>
+        submit
+      </button>
+      <button onClick={handleButtonClick}>click me</button>
     </form>
-    <button onClick={handleButtonClick}>click me</button>
-  </section>
+  </section>)
 }
 
 const Book = (props) => {
