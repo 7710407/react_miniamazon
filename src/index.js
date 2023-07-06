@@ -23,8 +23,8 @@ const BookList = () => {
   return (
     <section className='booklist'>
       {/* <EventExamples /> */}
-      {books.map((book)=>{
-        return <Book {...book} key={book.id} getBook={getBook} />
+      {books.map((book, index)=>{
+        return <Book {...book} key={book.id} number={index} />
       })}
     </section>
   );

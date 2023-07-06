@@ -1,14 +1,17 @@
+import img1 from './images/book1.jpg';
+import img2 from './images/book2.jpg';
+
 export const books = [
     {
         author: 'Rebecca Yarros',
         title: 'Iron Flame',
-        img: './images/iron.jpg',
+        img: img1,
         id: 1,
     },
     {
         author: 'Alex Michaelides',
         title: 'The Silent Patient',
-        img: 'https://m.media-amazon.com/images/I/41j1-YNROeL._SX324_BO1,204,203,200_.jpg',
+        img: img2,
         id: 2,
     }
 ];
